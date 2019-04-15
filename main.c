@@ -51,14 +51,8 @@
 #define BLUE 0x0000ff
 #define YELLOW 0xFFFF00
 
-#define LINE_BRESENHAM 0
-#define LINE_WU 1
-
 #define TARGET_IMAGE 0
 #define TARGET_SCREEN 1
-
-#define PROJECTION_PARALLEL 0
-#define PROJECTION_CENTRAL 1
 
 struct s_point make_point(int x, int y, int z)
 {
@@ -82,12 +76,10 @@ void point_swap(struct s_point *l, struct s_point *r)
 struct s_options
 {
 	int show_help;
-	int line_method;
 	int diagonal_lines;
 	int cut_line_window_border;
 	int show_framerate;
 	int target;
-	int projection_type;
 };
 
 struct s_image
@@ -107,13 +99,12 @@ struct s_data
 	int window_y;
 	struct s_matrix4 basic;
 	struct s_array2_point points;
-	int xcenter;
-	int ycenter;
+	int xcamera;
+	int ycamera;
 	struct s_options options;
 	int fps;
 	struct s_image image;
 	int (*pixel_put)(void*, void*, int, int, int);
-	void (*draw_line)(struct s_data*, struct s_point, struct s_point, int);
 };
 
 int sign(int n)
@@ -146,10 +137,6 @@ int	pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color)
 
 	(void)mlx_ptr;
 	(void)win_ptr;
-	/*for (int i = 1000; i < 5000; ++i)
-	{
-		image->image[i] = RED;
-	}*/
 	if (x >= 0 && x < data->window_x && y >=0 && y >= 0 && y < data->window_y)
 	{
 		image->image[y * image->size_line + x * 4] = 0xffffffff;
@@ -184,7 +171,6 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 			{
 				break;
 			}
-			//mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			x += step;
 			y += k;
@@ -204,17 +190,11 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 			{
 				break;
 			}
-			//mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			x += k;
 			y += step;
 		}
 	}
-}
-
-void draw_line_Wu(struct s_data *data, struct s_point start, struct s_point end, int color)
-{
-
 }
 
 void point_multiply_matrix3(struct s_point *point, const struct s_matrix4 *m)
@@ -281,6 +261,11 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 	array_point_init(&arr);
 	while (*line)
 	{
+		if (*line == ' ')
+		{
+			++line;
+		}
+
 		if (!ft_isdigit(*line) && *line != '+' && *line != '-')
 		{
 			ft_printf("%s %s %d\n", line, __func__, __LINE__);
@@ -359,22 +344,22 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 			{
 				line_end = array_point_at(arr, j + 1);
 				point_multiply_matrix3(&line_end, basic);
-				start1.x = line_start.x + data->window_x / 2.0;
-				start1.y = line_start.y + data->window_y / 2.0;
-				end1.x =  line_end.x + data->window_x / 2.0;
-				end1.y = line_end.y + data->window_y / 2.0;
-				data->draw_line(data, start1, end1, BLUE);
+				start1.x = line_start.x + data->xcamera;
+				start1.y = line_start.y + data->ycamera;
+				end1.x =  line_end.x + data->xcamera;
+				end1.y = line_end.y + data->ycamera;
+				draw_line(data, start1, end1, BLUE);
 			}
 
 			if (i + 1 != array2_point_size(points))
 			{
 				line_end = array_point_at(array2_point_at(points, i + 1), j);
 				point_multiply_matrix3(&line_end, basic);
-				start1.x = line_start.x + data->window_x / 2.0;
-				start1.y = line_start.y + data->window_y / 2.0;
-				end1.x = line_end.x + data->window_x / 2.0;
-				end1.y = line_end.y + data->window_y / 2.0;
-				data->draw_line(data, start1, end1, BLUE);
+				start1.x = line_start.x + data->xcamera;
+				start1.y = line_start.y + data->ycamera;
+				end1.x = line_end.x + data->xcamera;
+				end1.y = line_end.y + data->ycamera;
+				draw_line(data, start1, end1, BLUE);
 			}
 
 			if (data->options.diagonal_lines)
@@ -384,11 +369,11 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 					arr = array2_point_at(points, i + 1);
 					line_end = array_point_at(arr, j + 1);
 					point_multiply_matrix3(&line_end, basic);
-					start1.x = line_start.x + data->window_x / 2.0;
-					start1.y = line_start.y + data->window_y / 2.0;
-					end1.x =  line_end.x + data->window_x / 2.0;
-					end1.y = line_end.y + data->window_y / 2.0;
-					data->draw_line(data, start1, end1, BLUE);
+					start1.x = line_start.x + data->xcamera;
+					start1.y = line_start.y + data->ycamera;
+					end1.x =  line_end.x + data->xcamera;
+					end1.y = line_end.y + data->ycamera;
+					draw_line(data, start1, end1, BLUE);
 				}
 			}
 			++j;
@@ -408,20 +393,9 @@ void center_surface(struct s_data *data)
 	ycenter = array_point_back(array2_point_back(&data->points)).y / 2;
 	m.arr[3][0] =  -xcenter;
 	m.arr[3][1] = -ycenter;
+	data->xcamera = data->window_x / 2;
+	data->ycamera = data->window_y / 2;
 	matrix4_multiply_matrix4(&data->basic, &m);
-}
-
-void center_scale(struct s_data *data)
-{
-	int xcenter;
-	int ycenter;
-
-	xcenter = array_point_at(array2_point_at(&data->points, array2_point_size(&data->points) - 1), array_point_size(array2_point_at(&data->points, array2_point_size(&data->points) - 1)) - 1).x / 2 ;
-	ycenter = array_point_at(array2_point_at(&data->points, array2_point_size(&data->points) - 1), array_point_size(array2_point_at(&data->points, array2_point_size(&data->points) - 1)) - 1).y / 2;
-	/*data->basic.arr[0][0] = ((float)data->window_x / 2) / xcenter;
-	data->basic.arr[1][1] = ((float)data->window_y / 2) / ycenter;*/
-	data->basic.arr[0][0] = 0.5;
-	data->basic.arr[1][1] = 0.5;
 }
 
 void draw_fps(struct s_data *data)
@@ -440,56 +414,40 @@ void draw_help(struct s_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 65, GREEN, "WASD - move object");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 85, GREEN, "R - reset view");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 105, GREEN, "[arrows, Q, E] - rotate");
-	if (data->options.line_method == LINE_BRESENHAM)
-	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 125, GREEN, "L - set Wu lines");
-	}
-	else
-	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 125, GREEN, "L - Bresenham lines");
-	}
 	if (data->options.diagonal_lines == 0)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 145, GREEN, "V - add Diagonal lines");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 125, GREEN, "V - add Diagonal lines");
 	}
 	else
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 145, GREEN, "V - remove Diagonal lines");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 125, GREEN, "V - remove Diagonal lines");
 	}
 	if (data->options.cut_line_window_border == 0)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 165, GREEN, "O - cut lines out of window");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 145, GREEN, "O - cut lines out of window");
 	}
 	else
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 165, GREEN, "O - don't cut lines out of window");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 145, GREEN, "O - don't cut lines out of window");
 	}
 	if (data->options.show_framerate == 1)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 185, GREEN, "F - hide FPS");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 165, GREEN, "F - hide FPS");
 		draw_fps(data);
 	}
 	else
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 185, GREEN, "F - show FPS");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 165, GREEN, "F - show FPS");
 	}
 	if (data->options.target == TARGET_SCREEN)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 205, GREEN, "J - draw to image");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 185, GREEN, "J - draw to image");
 	}
 	else
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 205, GREEN, "J - draw to screen");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 185, GREEN, "J - draw to screen");
 	}
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 225, GREEN, "[*/] - scale z / reset scale");
-	if (data->options.projection_type == PROJECTION_PARALLEL)
-	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 245, GREEN, "P - projection central");
-	}
-	else
-	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 245, GREEN, "P - projection parallel");
-	}
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 205, GREEN, "[*/] - scale z / reset scale");
 }
 
 void redraw_scene(struct s_data *data)
@@ -520,19 +478,6 @@ void handle_options(int key, struct s_data *data)
 	{
 		data->options.show_help = !data->options.show_help;
 	}
-	else if (key == L)
-	{
-		if (data->options.line_method == LINE_BRESENHAM)
-		{
-			data->options.line_method = LINE_WU;
-			data->draw_line = &draw_line_Wu;
-		}
-		else
-		{
-			data->options.line_method = LINE_BRESENHAM;
-			data->draw_line = &draw_line;
-		}
-	}
 	else if (key == V)
 	{
 		data->options.diagonal_lines = !data->options.diagonal_lines;
@@ -558,19 +503,6 @@ void handle_options(int key, struct s_data *data)
 			data->pixel_put = &mlx_pixel_put;
 		}
 	}
-	else if (key == P)
-	{
-		if (data->options.projection_type == PROJECTION_PARALLEL)
-		{
-			data->options.projection_type = PROJECTION_CENTRAL;
-			data->basic.arr[0][3] = 5;
-			data->basic.arr[1][3] = 5;
-		}
-		else
-		{
-			data->options.projection_type = PROJECTION_PARALLEL;
-		}
-	}
 	else
 	{
 		ft_printf("key = %d\n", key);
@@ -581,22 +513,6 @@ void free_memory(struct s_data *data)
 {
 	//free
 	mlx_destroy_image(data->mlx_ptr, data->image.img_ptr);
-}
-
-int mouse_hook(int button, int x, int y, void *p)
-{
-	ft_printf("mouse: x = %d, y = %d\n", x, y);
-	return (0);
-}
-
-void move(struct s_matrix4 *basic)
-{
-
-}
-
-void rotate(struct s_matrix4 *basic)
-{
-
 }
 
 int key_hook(int key, void *param)
@@ -617,23 +533,19 @@ int key_hook(int key, void *param)
 	}
 	else if (key == W)
 	{
-		move.arr[3][1] = -ystep;
-		matrix4_multiply_matrix4(&data->basic, &move);
+		data->ycamera -= ystep;
 	}
 	else if (key == A)
 	{
-		move.arr[3][0] = -xstep;
-		matrix4_multiply_matrix4(&data->basic, &move);
+		data->xcamera -= xstep;
 	}
 	else if (key == S)
 	{
-		move.arr[3][1] = ystep;
-		matrix4_multiply_matrix4(&data->basic, &move);
+		data->ycamera += ystep;
 	}
 	else if (key == D)
 	{
-		move.arr[3][0] = xstep;
-		matrix4_multiply_matrix4(&data->basic, &move);
+		data->xcamera += xstep;
 	}
 	else if (key == Q)
 	{
@@ -690,7 +602,6 @@ int key_hook(int key, void *param)
 	{
 		move.arr[0][0] = 1 + scale_step;
 		move.arr[1][1] = 1 + scale_step;
-		//move.arr
 		matrix4_multiply_matrix4(&data->basic, &move);
 	}
 	else if (key == NUMPAD_MINUS)
@@ -715,15 +626,8 @@ int key_hook(int key, void *param)
 	else if (key == C)
 	{
 		struct s_matrix4 m;
-		int xcenter;
-		int ycenter;
 
 		identity_matrix4(&m);
-		xcenter = array_point_at(array2_point_at(&data->points, array2_point_size(&data->points) - 1), array_point_size(array2_point_at(&data->points, array2_point_size(&data->points) - 1)) - 1).x / 2 ;
-		ycenter = array_point_at(array2_point_at(&data->points, array2_point_size(&data->points) - 1), array_point_size(array2_point_at(&data->points, array2_point_size(&data->points) - 1)) - 1).y / 2;
-		/*m.arr[3][0] = - xcenter;
-		m.arr[3][1] =  - ycenter;
-		matrix4_multiply_matrix4(&data->basic, &m);*/
 		data->basic.arr[0][0] *= 0.9;
 		data->basic.arr[1][1] *= 0.9;
 	}
@@ -736,36 +640,9 @@ void init_options(struct s_options *options)
 {
 	options->show_help = 1;
 	options->diagonal_lines = 0;
-	options->line_method = LINE_BRESENHAM;
 	options->cut_line_window_border = 1;
 	options->show_framerate = 1;
 	options->target = TARGET_IMAGE;
-	options->projection_type = PROJECTION_PARALLEL;
-}
-
-void demo_scene(struct s_data *data)
-{
-	draw_line(data, make_point(200, 200, 0), make_point(100, 100, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(300, 100, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(100, 300, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(300, 300, 0), RED);
-
-	draw_line(data, make_point(200, 200, 0), make_point(200, 100, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(200, 300, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(100, 200, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(300, 200, 0), RED);
-
-	draw_line(data, make_point(200, 200, 0), make_point(150, 100, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(250, 100, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(150, 300, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(250, 300, 0), RED);
-
-	draw_line(data, make_point(200, 200, 0), make_point(100, 150, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(300, 150, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(100, 250, 0), RED);
-	draw_line(data, make_point(200, 200, 0), make_point(300, 250, 0), RED);
-
-	mlx_pixel_put(data->mlx_ptr, data->win_ptr, 200, 200, GREEN);
 }
 
 void create_image(struct s_data *data)
@@ -800,12 +677,8 @@ int main(int argc, char *argv[])
 	}
 	data.fps = 0;
 	data.pixel_put = &pixel_put_image;
-	data.draw_line = &draw_line;
 	create_image(&data);
 	init_options(&data.options);
-
-	/*demo_scene(&data);
-	mlx_loop(data.mlx_ptr);*/
 
 	array2_point_init(&data.points);
 	if (!read_points(&data.points, argv[1]))
@@ -814,15 +687,11 @@ int main(int argc, char *argv[])
 		ft_printf("error\n");
 		return (1);
 	}
-	data.xcenter = data.window_x / 2;
-	data.ycenter = data.window_y / 2;
 	identity_matrix4(&data.basic);
 	center_surface(&data);
-	//center_scale(&data);
 	redraw_scene(&data);
 
 	mlx_hook(data.win_ptr, 2, 0, &key_hook, &data);
-	mlx_hook(data.win_ptr, 5, 0, &mouse_hook, &data);
 	mlx_loop(data.mlx_ptr);
 	array2_point_destroy(&data.points);
 	return 0;
