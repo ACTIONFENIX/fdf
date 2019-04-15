@@ -80,6 +80,7 @@ struct s_options
 	int cut_line_window_border;
 	int show_framerate;
 	int target;
+	float zscale;
 };
 
 struct s_image
@@ -338,11 +339,13 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 		{
 			arr = array2_point_at(points, i);
 			line_start = array_point_at(arr, j);
+			line_start.z *= data->options.zscale;
 			point_multiply_matrix3(&line_start, basic);
 
 			if (j + 1 != array_point_size(arr))
 			{
 				line_end = array_point_at(arr, j + 1);
+				line_end.z *= data->options.zscale;
 				point_multiply_matrix3(&line_end, basic);
 				start1.x = line_start.x + data->xcamera;
 				start1.y = line_start.y + data->ycamera;
@@ -354,6 +357,7 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 			if (i + 1 != array2_point_size(points))
 			{
 				line_end = array_point_at(array2_point_at(points, i + 1), j);
+				line_end.z *= data->options.zscale;
 				point_multiply_matrix3(&line_end, basic);
 				start1.x = line_start.x + data->xcamera;
 				start1.y = line_start.y + data->ycamera;
@@ -368,6 +372,7 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 				{
 					arr = array2_point_at(points, i + 1);
 					line_end = array_point_at(arr, j + 1);
+					line_end.z *= data->options.zscale;
 					point_multiply_matrix3(&line_end, basic);
 					start1.x = line_start.x + data->xcamera;
 					start1.y = line_start.y + data->ycamera;
@@ -396,6 +401,7 @@ void center_surface(struct s_data *data)
 	data->xcamera = data->window_x / 2;
 	data->ycamera = data->window_y / 2;
 	matrix4_multiply_matrix4(&data->basic, &m);
+	data->options.zscale = 1;
 }
 
 void draw_fps(struct s_data *data)
@@ -447,7 +453,7 @@ void draw_help(struct s_data *data)
 	{
 		mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 185, GREEN, "J - draw to screen");
 	}
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 205, GREEN, "[*/] - scale z / reset scale");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 25, 205, GREEN, "[*/] - scale z");
 }
 
 void redraw_scene(struct s_data *data)
@@ -612,11 +618,11 @@ int key_hook(int key, void *param)
 	}
 	else if (key == NUMPAD_ASTERISK)
 	{
-		data->basic.arr[2][3] += 1;
+		data->options.zscale *= (1 + scale_step);
 	}
 	else if (key == NUMPAD_SLASH)
 	{
-		data->basic.arr[2][3] = 0;
+		data->options.zscale *= (1 - scale_step);
 	}
 	else if (key == R)
 	{
@@ -643,6 +649,7 @@ void init_options(struct s_options *options)
 	options->cut_line_window_border = 1;
 	options->show_framerate = 1;
 	options->target = TARGET_IMAGE;
+	options->zscale = 1;
 }
 
 void create_image(struct s_data *data)
