@@ -170,7 +170,9 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 		{
 			if (data->options.cut_line_window_border && (x < 0 || x > data->window_x))
 			{
-				break;
+				x += step;
+				y += k;
+				continue;
 			}
 			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			x += step;
@@ -189,7 +191,9 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 		{
 			if (data->options.cut_line_window_border && (y < 0 || y > data->window_y))
 			{
-				break;
+				x += k;
+				y += step;
+				continue;
 			}
 			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 			x += k;
