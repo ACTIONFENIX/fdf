@@ -145,59 +145,55 @@ int	pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color)
 	return (0);
 }
 
-void	draw_line(struct s_data *data, struct s_point start, struct s_point end, int color) //need to be optimized
+void	draw_line(struct s_data *data, struct s_point start, struct s_point end, int color)
 {
-	float x;
-	float y;
-	float k;
-	int delta_x;
-	int delta_y;
-	int step;
+	int length_x;
+	int length_y;
+	int dx;
+	int dy;
+	int error;
 
 	if (start.x > end.x)
 	{
 		point_swap(&start, &end);
 	}
-	delta_x = end.x - start.x;
-	delta_y = end.y - start.y;
-	if (abs(delta_x) >= abs(delta_y))
+	length_x = abs(end.x - start.x);
+	length_y = abs(end.y - start.y);
+	dx = sign(end.x - start.x);
+	dy = sign(end.y - start.y);
+	error = 0;
+	if (length_x >= length_y)
 	{
-		k = (float)delta_y / delta_x;
-		x = start.x;
-		y = start.y;
-		step = sign(delta_x);
-		while (x != end.x)
+		while (start.x != end.x)
 		{
-			if (data->options.cut_line_window_border && (x < 0 || x > data->window_x))
+			if (!(data->options.cut_line_window_border && (start.x < 0 || start.x > data->window_x)))
 			{
-				x += step;
-				y += k;
-				continue;
+				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, color);
 			}
-			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
-			x += step;
-			y += k;
+			start.x += dx;
+			error += length_y;
+			if (2 * error >= length_x)
+			{
+				start.y += dy;
+				error -= length_x;
+			}
 		}
 	}
 	else
 	{
-		k = (float)delta_x / delta_y;
-		if (delta_x > 0 && k < 0)
-			k = -k;
-		x = start.x;
-		y = start.y;
-		step = sign(delta_y);
-		while (y != end.y)
+		while (start.y != end.y)
 		{
-			if (data->options.cut_line_window_border && (y < 0 || y > data->window_y))
+			if (!(data->options.cut_line_window_border && (start.y < 0 || start.y > data->window_y)))
 			{
-				x += k;
-				y += step;
-				continue;
+				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, color);
 			}
-			data->pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
-			x += k;
-			y += step;
+			start.y += dy;
+			error += length_x;
+			if (2 * error >= length_y)
+			{
+				start.x += dx;
+				error -= length_y;
+			}
 		}
 	}
 }
