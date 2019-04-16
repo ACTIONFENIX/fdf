@@ -54,13 +54,33 @@
 #define TARGET_IMAGE 0
 #define TARGET_SCREEN 1
 
-struct s_point make_point(int x, int y, int z)
+struct s_color
+{
+	int r;
+	int g;
+	int b;
+	int a;
+};
+
+struct s_color make_color(unsigned int color)
+{
+	struct s_color c;
+
+	c.a = (color >> 24) & 0xff;
+	c.r = (color >> 16) & 0xff;
+	c.g = (color >> 8) & 0xff;
+	c.b = color & 0xff;
+	return (c);
+}
+
+struct s_point make_point(int x, int y, int z, int color)
 {
 	struct s_point point;
 
 	point.x = x;
 	point.y = y;
 	point.z = z;
+	point.color = color;
 	return (point);
 }
 
@@ -140,7 +160,7 @@ int	pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color)
 	(void)win_ptr;
 	if (x >= 0 && x < data->window_x && y >=0 && y >= 0 && y < data->window_y)
 	{
-		image->image[y * image->size_line + x * 4] = 0xffffffff;
+		image->image[y * image->size_line + x * 4] = color;
 	}
 	return (0);
 }
@@ -248,6 +268,104 @@ void identity_matrix4(struct s_matrix4 *m)
 	m->arr[3][3] = 1;
 }
 
+int is_atox_digit(char c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else if (c >= 'a' && c <= 'f')
+	{
+		return (1);
+	}
+	else if (c >= 'A' && c <= 'F')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+unsigned int atox_char_to_digit(char c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (c - '0');
+	}
+	else if (c >= 'a' && c <= 'f')
+	{
+		return (c - 'a');
+	}
+	else if (c >= 'A' && c <= 'F')
+	{
+		return (c - 'A');
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+static unsigned int	ft_get_uint(const char *str)
+{
+	unsigned int	ret_val;
+	size_t			i;
+
+	i = 0;
+	ret_val = 0;
+	while (str[i] && is_atox_digit(str[i]))
+	{
+		ret_val += atox_char_to_digit(str[i]);
+		++i;
+		if (str[i] && is_atox_digit(str[i]) && ret_val * 16 < ret_val)
+			return (ret_val);
+		if (str[i] && is_atox_digit(str[i]))
+			ret_val *= 16;
+	}
+	return (ret_val);
+}
+
+unsigned int	ft_atox(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		   || str[i] == '\f' || str[i] == '\r')
+		++i;
+	if (!str[i])
+		return (0);
+	if (str[i] == '0' && (str[i + 1] == 'x' ||str[i + 1] == 'X'))
+	{
+		str += 2;
+	}
+	else
+	{
+		return (0);
+	}
+	return (ft_get_uint(str + i));
+}
+
+const char	*skip_atox_number(const char *str)
+{
+	if (*str == '0')
+	{
+		++str;
+	}
+	if (*str == 'x' || *str == 'X')
+	{
+		++str;
+	}
+	while (is_atox_digit(*str))
+	{
+		++str;
+	}
+	return (str);
+}
+
+
 bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsing
 {
 	struct s_array_point arr;
@@ -257,19 +375,14 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 	struct s_point point;
 	int xstep = 20;
 	int ystep = 20;
+	int default_color = BLUE;
 
 	x = 0;
 	array_point_init(&arr);
 	while (*line)
 	{
-		if (*line == ' ')
-		{
-			++line;
-		}
-
 		if (!ft_isdigit(*line) && *line != '+' && *line != '-')
 		{
-			ft_printf("%s %s %d\n", line, __func__, __LINE__);
 			return (0);
 		}
 		z = ft_atoi(line) * 5;
@@ -278,17 +391,19 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 		if (*line == ',')
 		{
 			++line;
-			while (!ft_isspace(*line))
+			point.color = ft_atox(line);
+			if (point.color == 0)
 			{
-				++line;
+				point.color = default_color;
 			}
+			line = skip_atox_number(line);
 		}
 
 		while (ft_isspace(*line))
 		{
 			++line;
 		}
-		point = make_point(x, y, z);
+		point = make_point(x, y, z, default_color);
 		array_point_push_back(&arr, &point);
 		x += xstep;
 	}
