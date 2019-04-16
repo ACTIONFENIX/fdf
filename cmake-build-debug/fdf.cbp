@@ -90,6 +90,9 @@
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/array_point.h">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/color.h">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/matrix4.h">
 			<Option target="fdf"/>
 		</Unit>

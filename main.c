@@ -19,6 +19,7 @@
 #include "array_point.h"
 #include "array2_point.h"
 #include "matrix4.h"
+#include "color.h"
 #include <time.h>
 
 #define ESC 53
@@ -50,37 +51,21 @@
 #define GREEN 0x00ff00
 #define BLUE 0x0000ff
 #define YELLOW 0xFFFF00
+#define WHITE 0xFFFFFF
+
+#define DEFAULT_COLOR BLUE
 
 #define TARGET_IMAGE 0
 #define TARGET_SCREEN 1
 
-struct s_color
-{
-	int r;
-	int g;
-	int b;
-	int a;
-};
-
-struct s_color make_color(unsigned int color)
-{
-	struct s_color c;
-
-	c.a = (color >> 24) & 0xff;
-	c.r = (color >> 16) & 0xff;
-	c.g = (color >> 8) & 0xff;
-	c.b = color & 0xff;
-	return (c);
-}
-
-struct s_point make_point(int x, int y, int z, int color)
+struct s_point make_point(int x, int y, int z, unsigned int color)
 {
 	struct s_point point;
 
 	point.x = x;
 	point.y = y;
 	point.z = z;
-	point.color = color;
+	point.color.color = color;
 	return (point);
 }
 
@@ -160,17 +145,32 @@ int	pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color)
 	(void)win_ptr;
 	if (x >= 0 && x < data->window_x && y >=0 && y >= 0 && y < data->window_y)
 	{
-		image->image[y * image->size_line + x * 4] = color;
+		*((int*)(&image->image[y * image->size_line + x * 4])) = color;
 	}
 	return (0);
 }
 
-void	draw_line(struct s_data *data, struct s_point start, struct s_point end, int color)
+int average_color(int start, int end, int i, int imax)
+{
+	union u_color st;
+	union u_color ed;
+	float lambda = (float)i / imax;
+
+	st.color = start;
+	ed.color = end;
+	st.scolor.r = (st.scolor.r + lambda * ed.scolor.r) / (1 + lambda);
+	st.scolor.g = (st.scolor.g + lambda * ed.scolor.g) / (1 + lambda);
+	st.scolor.b = (st.scolor.b + lambda * ed.scolor.b) / (1 + lambda);
+	return st.color;
+}
+
+void	draw_line(struct s_data *data, struct s_point start, struct s_point end)
 {
 	int length_x;
 	int length_y;
 	int dx;
 	int dy;
+	int i;
 	int error;
 
 	if (start.x > end.x)
@@ -182,13 +182,14 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 	dx = sign(end.x - start.x);
 	dy = sign(end.y - start.y);
 	error = 0;
+	i = 0;
 	if (length_x >= length_y)
 	{
 		while (start.x != end.x)
 		{
 			if (!(data->options.cut_line_window_border && (start.x < 0 || start.x > data->window_x)))
 			{
-				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, color);
+				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, average_color(start.color.color, end.color.color, i, length_x));
 			}
 			start.x += dx;
 			error += length_y;
@@ -197,6 +198,7 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 				start.y += dy;
 				error -= length_x;
 			}
+			++i;
 		}
 	}
 	else
@@ -205,7 +207,7 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 		{
 			if (!(data->options.cut_line_window_border && (start.y < 0 || start.y > data->window_y)))
 			{
-				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, color);
+				data->pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, average_color(start.color.color, end.color.color, i, length_y));
 			}
 			start.y += dy;
 			error += length_x;
@@ -214,6 +216,7 @@ void	draw_line(struct s_data *data, struct s_point start, struct s_point end, in
 				start.x += dx;
 				error -= length_y;
 			}
+			++i;
 		}
 	}
 }
@@ -225,6 +228,7 @@ void point_multiply_matrix3(struct s_point *point, const struct s_matrix4 *m)
 	new_point.x = point->x * m->arr[0][0] + point->y * m->arr[1][0] + point->z * m->arr[2][0] + m->arr[3][0];
 	new_point.y = point->x * m->arr[0][1] + point->y * m->arr[1][1] + point->z * m->arr[2][1] + m->arr[3][1];
 	new_point.z = point->x * m->arr[0][2] + point->y * m->arr[1][2] + point->z * m->arr[2][2] + m->arr[3][2];
+	new_point.color = point->color;
 	*point = new_point;
 }
 
@@ -296,11 +300,11 @@ unsigned int atox_char_to_digit(char c)
 	}
 	else if (c >= 'a' && c <= 'f')
 	{
-		return (c - 'a');
+		return (10 + c - 'a');
 	}
 	else if (c >= 'A' && c <= 'F')
 	{
-		return (c - 'A');
+		return (10 + c - 'A');
 	}
 	else
 	{
@@ -375,7 +379,7 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 	struct s_point point;
 	int xstep = 20;
 	int ystep = 20;
-	int default_color = BLUE;
+	int color;
 
 	x = 0;
 	array_point_init(&arr);
@@ -388,22 +392,23 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 		z = ft_atoi(line) * 5;
 		line = skip_atoi_number(line);
 
+		color = 0;
 		if (*line == ',')
 		{
 			++line;
-			point.color = ft_atox(line);
-			if (point.color == 0)
-			{
-				point.color = default_color;
-			}
+			color = ft_atox(line);
 			line = skip_atox_number(line);
+		}
+		if (color == 0)
+		{
+			color = DEFAULT_COLOR;
 		}
 
 		while (ft_isspace(*line))
 		{
 			++line;
 		}
-		point = make_point(x, y, z, default_color);
+		point = make_point(x, y, z, color);
 		array_point_push_back(&arr, &point);
 		x += xstep;
 	}
@@ -442,8 +447,6 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 	struct s_array_point *arr;
 	struct s_point line_start;
 	struct s_point line_end;
-	struct s_point start1;
-	struct s_point end1;
 
 	i = 0;
 	while (i < array2_point_size(points))
@@ -453,47 +456,53 @@ void draw_points(struct s_data *data, struct s_array2_point *points, const struc
 		while (j < array_point_size(arr))
 		{
 			arr = array2_point_at(points, i);
-			line_start = array_point_at(arr, j);
-			line_start.z *= data->options.zscale;
-			point_multiply_matrix3(&line_start, basic);
 
 			if (j + 1 != array_point_size(arr))
 			{
+				line_start = array_point_at(arr, j);
+				line_start.z *= data->options.zscale;
+				point_multiply_matrix3(&line_start, basic);
 				line_end = array_point_at(arr, j + 1);
 				line_end.z *= data->options.zscale;
 				point_multiply_matrix3(&line_end, basic);
-				start1.x = line_start.x + data->xcamera;
-				start1.y = line_start.y + data->ycamera;
-				end1.x =  line_end.x + data->xcamera;
-				end1.y = line_end.y + data->ycamera;
-				draw_line(data, start1, end1, BLUE);
+				line_start.x = line_start.x + data->xcamera;
+				line_start.y = line_start.y + data->ycamera;
+				line_end.x =  line_end.x + data->xcamera;
+				line_end.y = line_end.y + data->ycamera;
+				draw_line(data, line_start, line_end);
 			}
 
 			if (i + 1 != array2_point_size(points))
 			{
+				line_start = array_point_at(arr, j);
+				line_start.z *= data->options.zscale;
+				point_multiply_matrix3(&line_start, basic);
 				line_end = array_point_at(array2_point_at(points, i + 1), j);
 				line_end.z *= data->options.zscale;
 				point_multiply_matrix3(&line_end, basic);
-				start1.x = line_start.x + data->xcamera;
-				start1.y = line_start.y + data->ycamera;
-				end1.x = line_end.x + data->xcamera;
-				end1.y = line_end.y + data->ycamera;
-				draw_line(data, start1, end1, BLUE);
+				line_start.x = line_start.x + data->xcamera;
+				line_start.y = line_start.y + data->ycamera;
+				line_end.x = line_end.x + data->xcamera;
+				line_end.y = line_end.y + data->ycamera;
+				draw_line(data, line_start, line_end);
 			}
 
 			if (data->options.diagonal_lines)
 			{
 				if (j + 1 != array_point_size(arr) && i + 1 != array2_point_size(points))
 				{
+					line_start = array_point_at(arr, j);
+					line_start.z *= data->options.zscale;
+					point_multiply_matrix3(&line_start, basic);
 					arr = array2_point_at(points, i + 1);
 					line_end = array_point_at(arr, j + 1);
 					line_end.z *= data->options.zscale;
 					point_multiply_matrix3(&line_end, basic);
-					start1.x = line_start.x + data->xcamera;
-					start1.y = line_start.y + data->ycamera;
-					end1.x =  line_end.x + data->xcamera;
-					end1.y = line_end.y + data->ycamera;
-					draw_line(data, start1, end1, BLUE);
+					line_start.x = line_start.x + data->xcamera;
+					line_start.y = line_start.y + data->ycamera;
+					line_end.x =  line_end.x + data->xcamera;
+					line_end.y = line_end.y + data->ycamera;
+					draw_line(data, line_start, line_end);
 				}
 			}
 			++j;
@@ -723,12 +732,14 @@ int key_hook(int key, void *param)
 	{
 		move.arr[0][0] = 1 + scale_step;
 		move.arr[1][1] = 1 + scale_step;
+		data->options.zscale *= (1 + scale_step);
 		matrix4_multiply_matrix4(&data->basic, &move);
 	}
 	else if (key == NUMPAD_MINUS)
 	{
 		move.arr[0][0] = 1 - scale_step;
 		move.arr[1][1] = 1 - scale_step;
+		data->options.zscale *= (1 - scale_step);
 		matrix4_multiply_matrix4(&data->basic, &move);
 	}
 	else if (key == NUMPAD_ASTERISK)

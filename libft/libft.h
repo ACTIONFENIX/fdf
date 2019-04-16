@@ -422,6 +422,6 @@ void				ft_memswap(void *dest, void *src, void *buffer,
 
 bool				is_atoi_number(char *str);
 
-char				*skip_atoi_number(const char *str);
+char				*skip_atoi_number(char *str);
 
 #endif

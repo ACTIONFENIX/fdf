@@ -14,9 +14,15 @@ libft.h
 libft.h
 ../inc/libft.h
 
+../inc/color.h
+stdint.h
+-
+
 ../inc/matrix4.h
 
 ../inc/point.h
+color.h
+../inc/color.h
 
 ../libft/array.h
 stdlib.h
@@ -61,6 +67,8 @@ array2_point.h
 /Users/myaremen/CLionProjects/fdf/array2_point.h
 matrix4.h
 /Users/myaremen/CLionProjects/fdf/matrix4.h
+color.h
+/Users/myaremen/CLionProjects/fdf/color.h
 time.h
 -
 

@@ -13,12 +13,14 @@
 #ifndef FDF_POINT_H
 # define FDF_POINT_H
 
+#include "color.h"
+
 struct s_point
 {
 	int x;
 	int y;
 	int z;
-	int color;
+	union u_color color;
 };
 
 #endif

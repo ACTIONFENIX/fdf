@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_skip_atoi_number.c                              :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:30:02 by myaremen          #+#    #+#             */
-/*   Updated: 2019/03/14 17:30:36 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef COLOR_H
+# define COLOR_H
 
-char	*skip_atoi_number(char *str)
+#include <stdint.h>
+
+struct s_color
 {
-	if (*str == '+' || *str == '-')
-	{
-		++str;
-	}
-	while (ft_isdigit(*str))
-	{
-		++str;
-	}
-	return (str);
-}
+	uint8_t b;
+	uint8_t g;
+	uint8_t r;
+	uint8_t a;
+};
+
+union u_color
+{
+	uint32_t color;
+	struct s_color scolor;
+};
+
+#endif
