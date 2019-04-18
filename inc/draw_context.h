@@ -15,25 +15,27 @@
 
 # include "draw_context.h"
 
-struct s_image
+struct	s_image
 {
-	void *img_ptr;
-	char *image;
-	int bits_per_pixel;
-	int size_line;
-	int endian;
+	void	*img_ptr;
+	char	*image;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
 };
 
-struct s_draw_context
+struct	s_draw_context
 {
-	void *mlx_ptr;
-	void *win_ptr;
-	int window_x;
-	int window_y;
-	struct s_image image;
-	int (*pixel_put)(void*, void*, int, int, int);
+	void			*mlx_ptr;
+	void			*win_ptr;
+	int				window_x;
+	int				window_y;
+	struct s_image	image;
+	int				(*pixel_put)(void*, void*, int, int, int);
 };
 
-void create_image(struct s_draw_context *draw_context);
+void	create_image(struct s_draw_context *draw_context);
+
+int		pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color);
 
 #endif

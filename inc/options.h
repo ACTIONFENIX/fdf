@@ -20,18 +20,19 @@
 # define TARGET_IMAGE 0
 # define TARGET_SCREEN 1
 
-struct s_options
+struct	s_options
 {
-	int show_help;
-	int diagonal_lines;
-	int cut_line_window_border;
-	int show_framerate;
-	int target;
-	float zscale;
+	int		show_help;
+	int		diagonal_lines;
+	int		cut_line_window_border;
+	int		show_framerate;
+	int		target;
+	float	zscale;
 };
 
-void init_options(struct s_options *options);
+void	init_options(struct s_options *options);
 
-void handle_options(int key, struct s_options *options, struct s_draw_context *draw_context);
+void	handle_options(int key, struct s_options *options,
+		struct s_draw_context *draw_context);
 
 #endif

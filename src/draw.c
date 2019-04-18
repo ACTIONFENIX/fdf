@@ -5,21 +5,6 @@
 #include "point.h"
 #include <time.h>
 
-int	pixel_put_image(void *mlx_ptr, void *win_ptr, int x, int y, int color)
-{
-	struct s_data *data = get_data(0);
-	struct s_draw_context *draw_context = &data->draw_context;
-	struct s_image *image = &draw_context->image;
-
-	(void)mlx_ptr;
-	(void)win_ptr;
-	if (x >= 0 && x < draw_context->window_x && y >=0 && y >= 0 && y < draw_context->window_y)
-	{
-		*((int*)(&image->image[y * image->size_line + x * 4])) = color;
-	}
-	return (0);
-}
-
 void	draw_line(struct s_draw_context *draw_context, struct s_options *options, struct s_point start, struct s_point end)
 {
 	int length_x;
@@ -220,21 +205,4 @@ void redraw_scene(struct s_data *data)
 		draw_help(&data->draw_context, data);
 	}
 	data->fps = CLOCKS_PER_SEC / (clock() - start);
-}
-
-void center_surface(struct s_data *data)
-{
-	struct s_matrix4 m;
-	int xcenter;
-	int ycenter;
-
-	identity_matrix4(&m);
-	xcenter = array_point_back(array2_point_back(&data->points)).x / 2;
-	ycenter = array_point_back(array2_point_back(&data->points)).y / 2;
-	m.arr[3][0] =  -xcenter;
-	m.arr[3][1] = -ycenter;
-	data->xcamera = data->draw_context.window_x / 2;
-	data->ycamera = data->draw_context.window_y / 2;
-	matrix4_multiply_matrix4(&data->basic, &m);
-	data->options.zscale = 1;
 }

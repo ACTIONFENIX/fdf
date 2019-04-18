@@ -18,17 +18,17 @@
 # include "matrix4.h"
 # include "array2_point.h"
 
-struct s_data
+struct			s_data
 {
-	struct s_draw_context draw_context;
-	struct s_matrix4 basic;
-	struct s_array2_point points;
-	int xcamera;
-	int ycamera;
-	struct s_options options;
-	int fps;
+	struct s_draw_context	draw_context;
+	struct s_matrix4		basic;
+	struct s_array2_point	points;
+	int						xcamera;
+	int						ycamera;
+	struct s_options		options;
+	int						fps;
 };
 
-struct s_data *get_data(struct s_data *set_data);
+struct s_data	*get_data(struct s_data *set_data);
 
 #endif

@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATRIX3_H
-# define MATRIX3_H
+#ifndef MATRIX4_H
+# define MATRIX4_H
 
-struct s_matrix4
+struct	s_matrix4
 {
 	float arr[4][4];
 };
 
-void identity_matrix4(struct s_matrix4 *m);
+void	identity_matrix4(struct s_matrix4 *m);
 
-void matrix4_multiply_matrix4(struct s_matrix4 *l, const struct s_matrix4 *r);
+void	matrix4_multiply_matrix4(struct s_matrix4 *l,
+		const struct s_matrix4 *r);
 
 #endif

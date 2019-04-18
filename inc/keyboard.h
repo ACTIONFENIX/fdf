@@ -38,6 +38,6 @@
 # define NUMPAD_ASTERISK 67
 # define NUMPAD_SLASH 75
 
-int key_hook(int key, void *param);
+int	key_hook(int key, void *param);
 
 #endif

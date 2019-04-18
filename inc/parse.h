@@ -16,10 +16,10 @@
 # include "stdbool.h"
 # include "array2_point.h"
 
-bool parse_line(struct s_array2_point *sarr, char *line);
+bool	parse_line(struct s_array2_point *sarr, char *line);
 
-bool is_data_full(struct s_array2_point *sarr);
+bool	is_data_full(struct s_array2_point *sarr);
 
-bool read_points(struct s_array2_point *sarr, const char *filename);
+bool	read_points(struct s_array2_point *sarr, const char *filename);
 
 #endif

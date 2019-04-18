@@ -15,8 +15,10 @@
 
 # include "data.h"
 
-int average_color(int start, int end, int i, int imax);
+void	center_surface(struct s_data *data);
 
-void free_memory(struct s_data *data);
+int		average_color(int start, int end, int i, int imax);
+
+void	free_memory(struct s_data *data);
 
 #endif
