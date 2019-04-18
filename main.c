@@ -370,7 +370,7 @@ const char	*skip_atox_number(const char *str)
 }
 
 
-bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsing
+bool parse_line(struct s_array2_point *sarr, char *line)
 {
 	struct s_array_point arr;
 	int x;
@@ -385,7 +385,7 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 	array_point_init(&arr);
 	while (*line)
 	{
-		if (!ft_isdigit(*line) && *line != '+' && *line != '-')
+		if (!ft_isdigit(*line) && *line != '+' && *line != '-' && *line != ' ')
 		{
 			return (0);
 		}
@@ -417,6 +417,26 @@ bool parse_line(struct s_array2_point *sarr, const char *line) //add color parsi
 	return (1);
 }
 
+bool is_data_full(struct s_array2_point *sarr)
+{
+	size_t i;
+	size_t line_size;
+	struct s_array_point *arr;
+
+	line_size = array_point_size(array2_point_front(sarr));
+	i = 1;
+	while (i < array2_point_size(sarr))
+	{
+		arr = array2_point_at(sarr, i);
+		if (array_point_size(arr) != line_size)
+		{
+			return (0);
+		}
+		++i;
+	}
+	return (1);
+}
+
 bool read_points(struct s_array2_point *sarr, const char *filename)
 {
 	int fd;
@@ -437,7 +457,7 @@ bool read_points(struct s_array2_point *sarr, const char *filename)
 		free(line);
 	}
 	free(line);
-	return (1);
+	return (is_data_full(sarr));
 }
 
 void draw_points(struct s_data *data, struct s_array2_point *points, const struct s_matrix4 *basic)
@@ -632,10 +652,6 @@ void handle_options(int key, struct s_data *data)
 			data->options.target = TARGET_SCREEN;
 			data->pixel_put = &mlx_pixel_put;
 		}
-	}
-	else
-	{
-		ft_printf("key = %d\n", key);
 	}
 }
 

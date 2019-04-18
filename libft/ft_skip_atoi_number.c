@@ -14,6 +14,10 @@
 
 char	*skip_atoi_number(char *str)
 {
+	while (ft_isspace(*str))
+	{
+		++str;
+	}
 	if (*str == '+' || *str == '-')
 	{
 		++str;
