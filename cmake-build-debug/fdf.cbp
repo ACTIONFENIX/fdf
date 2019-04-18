@@ -93,10 +93,43 @@
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/color.h">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/data.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/draw.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/draw_context.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/keyboard.h">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/matrix4.h">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/options.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/parse.h">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/point.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/inc/utils.h">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/libft/ft_atox.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/libft/ft_sign.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/libft/is_atox_digit.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/libft/skip_atox_number.c">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/main.c">
@@ -108,7 +141,31 @@
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/array_point.c">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/data.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/draw.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/draw_context.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/keyboard.c">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/matrix4.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/options.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/parse.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/point.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/utils.c">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/CMakeLists.txt">

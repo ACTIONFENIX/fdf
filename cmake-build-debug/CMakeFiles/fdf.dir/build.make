@@ -109,12 +109,180 @@ CMakeFiles/fdf.dir/src/matrix4.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/matrix4.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/matrix4.c -o CMakeFiles/fdf.dir/src/matrix4.c.s
 
+CMakeFiles/fdf.dir/src/point.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/point.c.o: ../src/point.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/fdf.dir/src/point.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/point.c.o   -c /Users/myaremen/CLionProjects/fdf/src/point.c
+
+CMakeFiles/fdf.dir/src/point.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/point.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/point.c > CMakeFiles/fdf.dir/src/point.c.i
+
+CMakeFiles/fdf.dir/src/point.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/point.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/point.c -o CMakeFiles/fdf.dir/src/point.c.s
+
+CMakeFiles/fdf.dir/libft/ft_sign.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/libft/ft_sign.c.o: ../libft/ft_sign.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/fdf.dir/libft/ft_sign.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/libft/ft_sign.c.o   -c /Users/myaremen/CLionProjects/fdf/libft/ft_sign.c
+
+CMakeFiles/fdf.dir/libft/ft_sign.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/libft/ft_sign.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/libft/ft_sign.c > CMakeFiles/fdf.dir/libft/ft_sign.c.i
+
+CMakeFiles/fdf.dir/libft/ft_sign.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/libft/ft_sign.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/libft/ft_sign.c -o CMakeFiles/fdf.dir/libft/ft_sign.c.s
+
+CMakeFiles/fdf.dir/libft/ft_atox.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/libft/ft_atox.c.o: ../libft/ft_atox.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/fdf.dir/libft/ft_atox.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/libft/ft_atox.c.o   -c /Users/myaremen/CLionProjects/fdf/libft/ft_atox.c
+
+CMakeFiles/fdf.dir/libft/ft_atox.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/libft/ft_atox.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/libft/ft_atox.c > CMakeFiles/fdf.dir/libft/ft_atox.c.i
+
+CMakeFiles/fdf.dir/libft/ft_atox.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/libft/ft_atox.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/libft/ft_atox.c -o CMakeFiles/fdf.dir/libft/ft_atox.c.s
+
+CMakeFiles/fdf.dir/libft/is_atox_digit.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/libft/is_atox_digit.c.o: ../libft/is_atox_digit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/fdf.dir/libft/is_atox_digit.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/libft/is_atox_digit.c.o   -c /Users/myaremen/CLionProjects/fdf/libft/is_atox_digit.c
+
+CMakeFiles/fdf.dir/libft/is_atox_digit.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/libft/is_atox_digit.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/libft/is_atox_digit.c > CMakeFiles/fdf.dir/libft/is_atox_digit.c.i
+
+CMakeFiles/fdf.dir/libft/is_atox_digit.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/libft/is_atox_digit.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/libft/is_atox_digit.c -o CMakeFiles/fdf.dir/libft/is_atox_digit.c.s
+
+CMakeFiles/fdf.dir/libft/skip_atox_number.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/libft/skip_atox_number.c.o: ../libft/skip_atox_number.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/fdf.dir/libft/skip_atox_number.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/libft/skip_atox_number.c.o   -c /Users/myaremen/CLionProjects/fdf/libft/skip_atox_number.c
+
+CMakeFiles/fdf.dir/libft/skip_atox_number.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/libft/skip_atox_number.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/libft/skip_atox_number.c > CMakeFiles/fdf.dir/libft/skip_atox_number.c.i
+
+CMakeFiles/fdf.dir/libft/skip_atox_number.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/libft/skip_atox_number.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/libft/skip_atox_number.c -o CMakeFiles/fdf.dir/libft/skip_atox_number.c.s
+
+CMakeFiles/fdf.dir/src/options.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/options.c.o: ../src/options.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/fdf.dir/src/options.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/options.c.o   -c /Users/myaremen/CLionProjects/fdf/src/options.c
+
+CMakeFiles/fdf.dir/src/options.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/options.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/options.c > CMakeFiles/fdf.dir/src/options.c.i
+
+CMakeFiles/fdf.dir/src/options.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/options.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/options.c -o CMakeFiles/fdf.dir/src/options.c.s
+
+CMakeFiles/fdf.dir/src/draw.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/draw.c.o: ../src/draw.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/fdf.dir/src/draw.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/draw.c.o   -c /Users/myaremen/CLionProjects/fdf/src/draw.c
+
+CMakeFiles/fdf.dir/src/draw.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/draw.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/draw.c > CMakeFiles/fdf.dir/src/draw.c.i
+
+CMakeFiles/fdf.dir/src/draw.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/draw.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/draw.c -o CMakeFiles/fdf.dir/src/draw.c.s
+
+CMakeFiles/fdf.dir/src/data.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/data.c.o: ../src/data.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/fdf.dir/src/data.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/data.c.o   -c /Users/myaremen/CLionProjects/fdf/src/data.c
+
+CMakeFiles/fdf.dir/src/data.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/data.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/data.c > CMakeFiles/fdf.dir/src/data.c.i
+
+CMakeFiles/fdf.dir/src/data.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/data.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/data.c -o CMakeFiles/fdf.dir/src/data.c.s
+
+CMakeFiles/fdf.dir/src/keyboard.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/keyboard.c.o: ../src/keyboard.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/fdf.dir/src/keyboard.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/keyboard.c.o   -c /Users/myaremen/CLionProjects/fdf/src/keyboard.c
+
+CMakeFiles/fdf.dir/src/keyboard.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/keyboard.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/keyboard.c > CMakeFiles/fdf.dir/src/keyboard.c.i
+
+CMakeFiles/fdf.dir/src/keyboard.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/keyboard.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/keyboard.c -o CMakeFiles/fdf.dir/src/keyboard.c.s
+
+CMakeFiles/fdf.dir/src/draw_context.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../src/draw_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/fdf.dir/src/draw_context.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/draw_context.c.o   -c /Users/myaremen/CLionProjects/fdf/src/draw_context.c
+
+CMakeFiles/fdf.dir/src/draw_context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/draw_context.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/draw_context.c > CMakeFiles/fdf.dir/src/draw_context.c.i
+
+CMakeFiles/fdf.dir/src/draw_context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/draw_context.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/draw_context.c -o CMakeFiles/fdf.dir/src/draw_context.c.s
+
+CMakeFiles/fdf.dir/src/parse.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/parse.c.o: ../src/parse.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/fdf.dir/src/parse.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/parse.c.o   -c /Users/myaremen/CLionProjects/fdf/src/parse.c
+
+CMakeFiles/fdf.dir/src/parse.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/parse.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/parse.c > CMakeFiles/fdf.dir/src/parse.c.i
+
+CMakeFiles/fdf.dir/src/parse.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/parse.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/parse.c -o CMakeFiles/fdf.dir/src/parse.c.s
+
+CMakeFiles/fdf.dir/src/utils.c.o: CMakeFiles/fdf.dir/flags.make
+CMakeFiles/fdf.dir/src/utils.c.o: ../src/utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/fdf.dir/src/utils.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/fdf.dir/src/utils.c.o   -c /Users/myaremen/CLionProjects/fdf/src/utils.c
+
+CMakeFiles/fdf.dir/src/utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/fdf.dir/src/utils.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/myaremen/CLionProjects/fdf/src/utils.c > CMakeFiles/fdf.dir/src/utils.c.i
+
+CMakeFiles/fdf.dir/src/utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/fdf.dir/src/utils.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/myaremen/CLionProjects/fdf/src/utils.c -o CMakeFiles/fdf.dir/src/utils.c.s
+
 # Object files for target fdf
 fdf_OBJECTS = \
 "CMakeFiles/fdf.dir/main.c.o" \
 "CMakeFiles/fdf.dir/src/array_point.c.o" \
 "CMakeFiles/fdf.dir/src/array2_point.c.o" \
-"CMakeFiles/fdf.dir/src/matrix4.c.o"
+"CMakeFiles/fdf.dir/src/matrix4.c.o" \
+"CMakeFiles/fdf.dir/src/point.c.o" \
+"CMakeFiles/fdf.dir/libft/ft_sign.c.o" \
+"CMakeFiles/fdf.dir/libft/ft_atox.c.o" \
+"CMakeFiles/fdf.dir/libft/is_atox_digit.c.o" \
+"CMakeFiles/fdf.dir/libft/skip_atox_number.c.o" \
+"CMakeFiles/fdf.dir/src/options.c.o" \
+"CMakeFiles/fdf.dir/src/draw.c.o" \
+"CMakeFiles/fdf.dir/src/data.c.o" \
+"CMakeFiles/fdf.dir/src/keyboard.c.o" \
+"CMakeFiles/fdf.dir/src/draw_context.c.o" \
+"CMakeFiles/fdf.dir/src/parse.c.o" \
+"CMakeFiles/fdf.dir/src/utils.c.o"
 
 # External object files for target fdf
 fdf_EXTERNAL_OBJECTS =
@@ -123,10 +291,23 @@ fdf: CMakeFiles/fdf.dir/main.c.o
 fdf: CMakeFiles/fdf.dir/src/array_point.c.o
 fdf: CMakeFiles/fdf.dir/src/array2_point.c.o
 fdf: CMakeFiles/fdf.dir/src/matrix4.c.o
+fdf: CMakeFiles/fdf.dir/src/point.c.o
+fdf: CMakeFiles/fdf.dir/libft/ft_sign.c.o
+fdf: CMakeFiles/fdf.dir/libft/ft_atox.c.o
+fdf: CMakeFiles/fdf.dir/libft/is_atox_digit.c.o
+fdf: CMakeFiles/fdf.dir/libft/skip_atox_number.c.o
+fdf: CMakeFiles/fdf.dir/src/options.c.o
+fdf: CMakeFiles/fdf.dir/src/draw.c.o
+fdf: CMakeFiles/fdf.dir/src/data.c.o
+fdf: CMakeFiles/fdf.dir/src/keyboard.c.o
+fdf: CMakeFiles/fdf.dir/src/draw_context.c.o
+fdf: CMakeFiles/fdf.dir/src/parse.c.o
+fdf: CMakeFiles/fdf.dir/src/utils.c.o
 fdf: CMakeFiles/fdf.dir/build.make
 fdf: ../libft/libft.a
+fdf: ../minilibx_macos/libmlx.a
 fdf: CMakeFiles/fdf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable fdf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/myaremen/CLionProjects/fdf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable fdf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fdf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

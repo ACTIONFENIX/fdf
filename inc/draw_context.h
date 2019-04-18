@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   draw_context.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
-/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/18 17:24:06 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/18 17:24:07 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef DRAW_CONTEXT_H
+# define DRAW_CONTEXT_H
 
-#include <stdint.h>
+# include "draw_context.h"
 
-# define RED 0xff0000
-# define GREEN 0x00ff00
-# define BLUE 0x0000ff
-# define YELLOW 0xFFFF00
-# define WHITE 0xFFFFFF
-
-struct s_color
+struct s_image
 {
-	uint8_t b;
-	uint8_t g;
-	uint8_t r;
-	uint8_t a;
+	void *img_ptr;
+	char *image;
+	int bits_per_pixel;
+	int size_line;
+	int endian;
 };
 
-union u_color
+struct s_draw_context
 {
-	uint32_t color;
-	struct s_color scolor;
+	void *mlx_ptr;
+	void *win_ptr;
+	int window_x;
+	int window_y;
+	struct s_image image;
+	int (*pixel_put)(void*, void*, int, int, int);
 };
+
+void create_image(struct s_draw_context *draw_context);
 
 #endif

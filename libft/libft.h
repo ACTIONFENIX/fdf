@@ -424,4 +424,12 @@ bool				is_atoi_number(char *str);
 
 char				*skip_atoi_number(char *str);
 
+int					ft_sign(int n);
+
+int					is_atox_digit(char c);
+
+unsigned int		ft_atox(const char *str);
+
+char				*skip_atox_number(char *str);
+
 #endif

@@ -123,6 +123,114 @@ fdf/fast:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/build
 .PHONY : fdf/fast
 
+libft/ft_atox.o: libft/ft_atox.c.o
+
+.PHONY : libft/ft_atox.o
+
+# target to build an object file
+libft/ft_atox.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_atox.c.o
+.PHONY : libft/ft_atox.c.o
+
+libft/ft_atox.i: libft/ft_atox.c.i
+
+.PHONY : libft/ft_atox.i
+
+# target to preprocess a source file
+libft/ft_atox.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_atox.c.i
+.PHONY : libft/ft_atox.c.i
+
+libft/ft_atox.s: libft/ft_atox.c.s
+
+.PHONY : libft/ft_atox.s
+
+# target to generate assembly for a file
+libft/ft_atox.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_atox.c.s
+.PHONY : libft/ft_atox.c.s
+
+libft/ft_sign.o: libft/ft_sign.c.o
+
+.PHONY : libft/ft_sign.o
+
+# target to build an object file
+libft/ft_sign.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_sign.c.o
+.PHONY : libft/ft_sign.c.o
+
+libft/ft_sign.i: libft/ft_sign.c.i
+
+.PHONY : libft/ft_sign.i
+
+# target to preprocess a source file
+libft/ft_sign.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_sign.c.i
+.PHONY : libft/ft_sign.c.i
+
+libft/ft_sign.s: libft/ft_sign.c.s
+
+.PHONY : libft/ft_sign.s
+
+# target to generate assembly for a file
+libft/ft_sign.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/ft_sign.c.s
+.PHONY : libft/ft_sign.c.s
+
+libft/is_atox_digit.o: libft/is_atox_digit.c.o
+
+.PHONY : libft/is_atox_digit.o
+
+# target to build an object file
+libft/is_atox_digit.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/is_atox_digit.c.o
+.PHONY : libft/is_atox_digit.c.o
+
+libft/is_atox_digit.i: libft/is_atox_digit.c.i
+
+.PHONY : libft/is_atox_digit.i
+
+# target to preprocess a source file
+libft/is_atox_digit.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/is_atox_digit.c.i
+.PHONY : libft/is_atox_digit.c.i
+
+libft/is_atox_digit.s: libft/is_atox_digit.c.s
+
+.PHONY : libft/is_atox_digit.s
+
+# target to generate assembly for a file
+libft/is_atox_digit.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/is_atox_digit.c.s
+.PHONY : libft/is_atox_digit.c.s
+
+libft/skip_atox_number.o: libft/skip_atox_number.c.o
+
+.PHONY : libft/skip_atox_number.o
+
+# target to build an object file
+libft/skip_atox_number.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/skip_atox_number.c.o
+.PHONY : libft/skip_atox_number.c.o
+
+libft/skip_atox_number.i: libft/skip_atox_number.c.i
+
+.PHONY : libft/skip_atox_number.i
+
+# target to preprocess a source file
+libft/skip_atox_number.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/skip_atox_number.c.i
+.PHONY : libft/skip_atox_number.c.i
+
+libft/skip_atox_number.s: libft/skip_atox_number.c.s
+
+.PHONY : libft/skip_atox_number.s
+
+# target to generate assembly for a file
+libft/skip_atox_number.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/skip_atox_number.c.s
+.PHONY : libft/skip_atox_number.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -204,6 +312,114 @@ src/array_point.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array_point.c.s
 .PHONY : src/array_point.c.s
 
+src/data.o: src/data.c.o
+
+.PHONY : src/data.o
+
+# target to build an object file
+src/data.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/data.c.o
+.PHONY : src/data.c.o
+
+src/data.i: src/data.c.i
+
+.PHONY : src/data.i
+
+# target to preprocess a source file
+src/data.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/data.c.i
+.PHONY : src/data.c.i
+
+src/data.s: src/data.c.s
+
+.PHONY : src/data.s
+
+# target to generate assembly for a file
+src/data.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/data.c.s
+.PHONY : src/data.c.s
+
+src/draw.o: src/draw.c.o
+
+.PHONY : src/draw.o
+
+# target to build an object file
+src/draw.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw.c.o
+.PHONY : src/draw.c.o
+
+src/draw.i: src/draw.c.i
+
+.PHONY : src/draw.i
+
+# target to preprocess a source file
+src/draw.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw.c.i
+.PHONY : src/draw.c.i
+
+src/draw.s: src/draw.c.s
+
+.PHONY : src/draw.s
+
+# target to generate assembly for a file
+src/draw.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw.c.s
+.PHONY : src/draw.c.s
+
+src/draw_context.o: src/draw_context.c.o
+
+.PHONY : src/draw_context.o
+
+# target to build an object file
+src/draw_context.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw_context.c.o
+.PHONY : src/draw_context.c.o
+
+src/draw_context.i: src/draw_context.c.i
+
+.PHONY : src/draw_context.i
+
+# target to preprocess a source file
+src/draw_context.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw_context.c.i
+.PHONY : src/draw_context.c.i
+
+src/draw_context.s: src/draw_context.c.s
+
+.PHONY : src/draw_context.s
+
+# target to generate assembly for a file
+src/draw_context.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/draw_context.c.s
+.PHONY : src/draw_context.c.s
+
+src/keyboard.o: src/keyboard.c.o
+
+.PHONY : src/keyboard.o
+
+# target to build an object file
+src/keyboard.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/keyboard.c.o
+.PHONY : src/keyboard.c.o
+
+src/keyboard.i: src/keyboard.c.i
+
+.PHONY : src/keyboard.i
+
+# target to preprocess a source file
+src/keyboard.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/keyboard.c.i
+.PHONY : src/keyboard.c.i
+
+src/keyboard.s: src/keyboard.c.s
+
+.PHONY : src/keyboard.s
+
+# target to generate assembly for a file
+src/keyboard.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/keyboard.c.s
+.PHONY : src/keyboard.c.s
+
 src/matrix4.o: src/matrix4.c.o
 
 .PHONY : src/matrix4.o
@@ -231,6 +447,114 @@ src/matrix4.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/matrix4.c.s
 .PHONY : src/matrix4.c.s
 
+src/options.o: src/options.c.o
+
+.PHONY : src/options.o
+
+# target to build an object file
+src/options.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/options.c.o
+.PHONY : src/options.c.o
+
+src/options.i: src/options.c.i
+
+.PHONY : src/options.i
+
+# target to preprocess a source file
+src/options.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/options.c.i
+.PHONY : src/options.c.i
+
+src/options.s: src/options.c.s
+
+.PHONY : src/options.s
+
+# target to generate assembly for a file
+src/options.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/options.c.s
+.PHONY : src/options.c.s
+
+src/parse.o: src/parse.c.o
+
+.PHONY : src/parse.o
+
+# target to build an object file
+src/parse.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/parse.c.o
+.PHONY : src/parse.c.o
+
+src/parse.i: src/parse.c.i
+
+.PHONY : src/parse.i
+
+# target to preprocess a source file
+src/parse.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/parse.c.i
+.PHONY : src/parse.c.i
+
+src/parse.s: src/parse.c.s
+
+.PHONY : src/parse.s
+
+# target to generate assembly for a file
+src/parse.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/parse.c.s
+.PHONY : src/parse.c.s
+
+src/point.o: src/point.c.o
+
+.PHONY : src/point.o
+
+# target to build an object file
+src/point.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/point.c.o
+.PHONY : src/point.c.o
+
+src/point.i: src/point.c.i
+
+.PHONY : src/point.i
+
+# target to preprocess a source file
+src/point.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/point.c.i
+.PHONY : src/point.c.i
+
+src/point.s: src/point.c.s
+
+.PHONY : src/point.s
+
+# target to generate assembly for a file
+src/point.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/point.c.s
+.PHONY : src/point.c.s
+
+src/utils.o: src/utils.c.o
+
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/utils.c.o
+.PHONY : src/utils.c.o
+
+src/utils.i: src/utils.c.i
+
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/utils.c.i
+.PHONY : src/utils.c.i
+
+src/utils.s: src/utils.c.s
+
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/utils.c.s
+.PHONY : src/utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,6 +564,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... fdf"
+	@echo "... libft/ft_atox.o"
+	@echo "... libft/ft_atox.i"
+	@echo "... libft/ft_atox.s"
+	@echo "... libft/ft_sign.o"
+	@echo "... libft/ft_sign.i"
+	@echo "... libft/ft_sign.s"
+	@echo "... libft/is_atox_digit.o"
+	@echo "... libft/is_atox_digit.i"
+	@echo "... libft/is_atox_digit.s"
+	@echo "... libft/skip_atox_number.o"
+	@echo "... libft/skip_atox_number.i"
+	@echo "... libft/skip_atox_number.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -249,9 +585,33 @@ help:
 	@echo "... src/array_point.o"
 	@echo "... src/array_point.i"
 	@echo "... src/array_point.s"
+	@echo "... src/data.o"
+	@echo "... src/data.i"
+	@echo "... src/data.s"
+	@echo "... src/draw.o"
+	@echo "... src/draw.i"
+	@echo "... src/draw.s"
+	@echo "... src/draw_context.o"
+	@echo "... src/draw_context.i"
+	@echo "... src/draw_context.s"
+	@echo "... src/keyboard.o"
+	@echo "... src/keyboard.i"
+	@echo "... src/keyboard.s"
 	@echo "... src/matrix4.o"
 	@echo "... src/matrix4.i"
 	@echo "... src/matrix4.s"
+	@echo "... src/options.o"
+	@echo "... src/options.i"
+	@echo "... src/options.s"
+	@echo "... src/parse.o"
+	@echo "... src/parse.i"
+	@echo "... src/parse.s"
+	@echo "... src/point.o"
+	@echo "... src/point.i"
+	@echo "... src/point.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

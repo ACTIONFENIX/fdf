@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
-/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/18 18:13:40 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/18 18:13:41 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef PARSE_H
+# define PARSE_H
 
-#include <stdint.h>
+# include "stdbool.h"
+# include "array2_point.h"
 
-# define RED 0xff0000
-# define GREEN 0x00ff00
-# define BLUE 0x0000ff
-# define YELLOW 0xFFFF00
-# define WHITE 0xFFFFFF
+bool parse_line(struct s_array2_point *sarr, char *line);
 
-struct s_color
-{
-	uint8_t b;
-	uint8_t g;
-	uint8_t r;
-	uint8_t a;
-};
+bool is_data_full(struct s_array2_point *sarr);
 
-union u_color
-{
-	uint32_t color;
-	struct s_color scolor;
-};
+bool read_points(struct s_array2_point *sarr, const char *filename);
 
 #endif

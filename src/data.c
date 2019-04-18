@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
-/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/18 16:56:40 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/18 16:56:41 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "data.h"
 
-#include <stdint.h>
-
-# define RED 0xff0000
-# define GREEN 0x00ff00
-# define BLUE 0x0000ff
-# define YELLOW 0xFFFF00
-# define WHITE 0xFFFFFF
-
-struct s_color
+struct s_data *get_data(struct s_data *set_data)
 {
-	uint8_t b;
-	uint8_t g;
-	uint8_t r;
-	uint8_t a;
-};
+	static struct s_data *save_data = 0;
 
-union u_color
-{
-	uint32_t color;
-	struct s_color scolor;
-};
-
-#endif
+	if (save_data == 0)
+	{
+		save_data = set_data;
+	}
+	return save_data;
+}

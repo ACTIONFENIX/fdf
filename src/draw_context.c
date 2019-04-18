@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   draw_context.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
-/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/18 18:00:45 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/18 18:00:46 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "draw_context.h"
+#include "mlx.h"
 
-#include <stdint.h>
-
-# define RED 0xff0000
-# define GREEN 0x00ff00
-# define BLUE 0x0000ff
-# define YELLOW 0xFFFF00
-# define WHITE 0xFFFFFF
-
-struct s_color
+void create_image(struct s_draw_context *draw_context)
 {
-	uint8_t b;
-	uint8_t g;
-	uint8_t r;
-	uint8_t a;
-};
-
-union u_color
-{
-	uint32_t color;
-	struct s_color scolor;
-};
-
-#endif
+	draw_context->image.img_ptr = mlx_new_image(draw_context->mlx_ptr, draw_context->window_x, draw_context->window_y);
+	draw_context->image.image = mlx_get_data_addr(draw_context->image.img_ptr, &draw_context->image.bits_per_pixel, &draw_context->image.size_line, &draw_context->image.endian);
+}

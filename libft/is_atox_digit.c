@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   is_atox_digit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaremen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 16:33:56 by myaremen          #+#    #+#             */
-/*   Updated: 2019/04/16 16:33:58 by myaremen         ###   ########.fr       */
+/*   Created: 2019/04/18 16:04:07 by myaremen          #+#    #+#             */
+/*   Updated: 2019/04/18 16:05:16 by myaremen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "libft.h"
 
-#include <stdint.h>
-
-# define RED 0xff0000
-# define GREEN 0x00ff00
-# define BLUE 0x0000ff
-# define YELLOW 0xFFFF00
-# define WHITE 0xFFFFFF
-
-struct s_color
+int is_atox_digit(char c)
 {
-	uint8_t b;
-	uint8_t g;
-	uint8_t r;
-	uint8_t a;
-};
-
-union u_color
-{
-	uint32_t color;
-	struct s_color scolor;
-};
-
-#endif
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else if (c >= 'a' && c <= 'f')
+	{
+		return (1);
+	}
+	else if (c >= 'A' && c <= 'F')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
