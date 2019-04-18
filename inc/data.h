@@ -31,4 +31,6 @@ struct			s_data
 
 struct s_data	*get_data(struct s_data *set_data);
 
+bool			init_data(struct s_data *data, const char *filename);
+
 #endif

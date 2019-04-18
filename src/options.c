@@ -15,7 +15,7 @@
 #include "draw.h"
 #include "mlx.h"
 
-void init_options(struct s_options *options)
+void	init_options(struct s_options *options)
 {
 	options->show_help = 1;
 	options->diagonal_lines = 0;
@@ -25,24 +25,17 @@ void init_options(struct s_options *options)
 	options->zscale = 1;
 }
 
-void handle_options(int key, struct s_options *options, struct s_draw_context *draw_context)
+void	handle_options(int key, struct s_options *options,
+		struct s_draw_context *draw_context)
 {
 	if (key == H)
-	{
 		options->show_help = !options->show_help;
-	}
 	else if (key == V)
-	{
 		options->diagonal_lines = !options->diagonal_lines;
-	}
 	else if (key == O)
-	{
 		options->cut_line_window_border = !options->cut_line_window_border;
-	}
 	else if (key == F)
-	{
 		options->show_framerate = !options->show_framerate;
-	}
 	else if (key == J)
 	{
 		if (options->target == TARGET_SCREEN)

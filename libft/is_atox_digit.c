@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int is_atox_digit(char c)
+int	is_atox_digit(char c)
 {
 	if (c >= '0' && c <= '9')
 	{

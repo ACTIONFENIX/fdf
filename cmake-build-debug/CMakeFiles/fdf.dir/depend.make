@@ -18,7 +18,6 @@ CMakeFiles/fdf.dir/libft/skip_atox_number.c.o: ../libft/libft.h
 CMakeFiles/fdf.dir/libft/skip_atox_number.c.o: ../libft/skip_atox_number.c
 
 CMakeFiles/fdf.dir/main.c.o: ../inc/array2_point.h
-CMakeFiles/fdf.dir/main.c.o: ../inc/array_point.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/color.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/data.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/draw.h
@@ -26,7 +25,6 @@ CMakeFiles/fdf.dir/main.c.o: ../inc/draw_context.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/keyboard.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/matrix4.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/options.h
-CMakeFiles/fdf.dir/main.c.o: ../inc/parse.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/point.h
 CMakeFiles/fdf.dir/main.c.o: ../inc/utils.h
 CMakeFiles/fdf.dir/main.c.o: ../libft/array.h
@@ -65,6 +63,7 @@ CMakeFiles/fdf.dir/src/data.c.o: ../inc/data.h
 CMakeFiles/fdf.dir/src/data.c.o: ../inc/draw_context.h
 CMakeFiles/fdf.dir/src/data.c.o: ../inc/matrix4.h
 CMakeFiles/fdf.dir/src/data.c.o: ../inc/options.h
+CMakeFiles/fdf.dir/src/data.c.o: ../inc/parse.h
 CMakeFiles/fdf.dir/src/data.c.o: ../libft/array.h
 CMakeFiles/fdf.dir/src/data.c.o: ../libft/libft.h
 CMakeFiles/fdf.dir/src/data.c.o: ../src/data.c
@@ -83,7 +82,13 @@ CMakeFiles/fdf.dir/src/draw.c.o: ../libft/array.h
 CMakeFiles/fdf.dir/src/draw.c.o: ../libft/libft.h
 CMakeFiles/fdf.dir/src/draw.c.o: ../src/draw.c
 
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../inc/array2_point.h
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../inc/data.h
 CMakeFiles/fdf.dir/src/draw_context.c.o: ../inc/draw_context.h
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../inc/matrix4.h
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../inc/options.h
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../libft/array.h
+CMakeFiles/fdf.dir/src/draw_context.c.o: ../libft/libft.h
 CMakeFiles/fdf.dir/src/draw_context.c.o: ../src/draw_context.c
 
 CMakeFiles/fdf.dir/src/keyboard.c.o: ../inc/array2_point.h
@@ -135,11 +140,13 @@ CMakeFiles/fdf.dir/src/point.c.o: ../inc/point.h
 CMakeFiles/fdf.dir/src/point.c.o: ../src/point.c
 
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/array2_point.h
+CMakeFiles/fdf.dir/src/utils.c.o: ../inc/array_point.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/color.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/data.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/draw_context.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/matrix4.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/options.h
+CMakeFiles/fdf.dir/src/utils.c.o: ../inc/point.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../inc/utils.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../libft/array.h
 CMakeFiles/fdf.dir/src/utils.c.o: ../libft/libft.h

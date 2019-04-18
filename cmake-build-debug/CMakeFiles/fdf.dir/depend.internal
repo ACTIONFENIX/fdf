@@ -19,7 +19,6 @@ CMakeFiles/fdf.dir/libft/skip_atox_number.c.o
  /Users/myaremen/CLionProjects/fdf/libft/skip_atox_number.c
 CMakeFiles/fdf.dir/main.c.o
  ../inc/array2_point.h
- ../inc/array_point.h
  ../inc/color.h
  ../inc/data.h
  ../inc/draw.h
@@ -27,7 +26,6 @@ CMakeFiles/fdf.dir/main.c.o
  ../inc/keyboard.h
  ../inc/matrix4.h
  ../inc/options.h
- ../inc/parse.h
  ../inc/point.h
  ../inc/utils.h
  ../libft/array.h
@@ -66,6 +64,7 @@ CMakeFiles/fdf.dir/src/data.c.o
  ../inc/draw_context.h
  ../inc/matrix4.h
  ../inc/options.h
+ ../inc/parse.h
  ../libft/array.h
  ../libft/libft.h
  /Users/myaremen/CLionProjects/fdf/src/data.c
@@ -84,7 +83,13 @@ CMakeFiles/fdf.dir/src/draw.c.o
  ../libft/libft.h
  /Users/myaremen/CLionProjects/fdf/src/draw.c
 CMakeFiles/fdf.dir/src/draw_context.c.o
+ ../inc/array2_point.h
+ ../inc/data.h
  ../inc/draw_context.h
+ ../inc/matrix4.h
+ ../inc/options.h
+ ../libft/array.h
+ ../libft/libft.h
  /Users/myaremen/CLionProjects/fdf/src/draw_context.c
 CMakeFiles/fdf.dir/src/keyboard.c.o
  ../inc/array2_point.h
@@ -136,11 +141,13 @@ CMakeFiles/fdf.dir/src/point.c.o
  /Users/myaremen/CLionProjects/fdf/src/point.c
 CMakeFiles/fdf.dir/src/utils.c.o
  ../inc/array2_point.h
+ ../inc/array_point.h
  ../inc/color.h
  ../inc/data.h
  ../inc/draw_context.h
  ../inc/matrix4.h
  ../inc/options.h
+ ../inc/point.h
  ../inc/utils.h
  ../libft/array.h
  ../libft/libft.h

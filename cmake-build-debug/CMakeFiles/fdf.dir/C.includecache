@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../inc/array_point.h
+../inc/array2_point.h
 libft.h
 ../inc/libft.h
 
@@ -14,13 +14,55 @@ libft.h
 stdint.h
 -
 
+../inc/data.h
+options.h
+../inc/options.h
+draw_context.h
+../inc/draw_context.h
+matrix4.h
 ../inc/matrix4.h
+array2_point.h
+../inc/array2_point.h
+
+../inc/draw.h
+data.h
+../inc/data.h
+utils.h
+../inc/utils.h
+point.h
+../inc/point.h
+
+../inc/draw_context.h
+draw_context.h
+../inc/draw_context.h
+
+../inc/keyboard.h
+
+../inc/matrix4.h
+
+../inc/options.h
+matrix4.h
+../inc/matrix4.h
+array2_point.h
+../inc/array2_point.h
+draw_context.h
+../inc/draw_context.h
+
+../inc/parse.h
+stdbool.h
+../inc/stdbool.h
+array2_point.h
+../inc/array2_point.h
 
 ../inc/point.h
 color.h
 ../inc/color.h
 matrix4.h
 ../inc/matrix4.h
+
+../inc/utils.h
+data.h
+../inc/data.h
 
 ../libft/array.h
 stdlib.h
@@ -46,9 +88,21 @@ stdarg.h
 array.h
 ../libft/array.h
 
-/Users/myaremen/CLionProjects/fdf/src/array_point_at.c
-array_point.h
-/Users/myaremen/CLionProjects/fdf/src/array_point.h
-point.h
-/Users/myaremen/CLionProjects/fdf/src/point.h
+/Users/myaremen/CLionProjects/fdf/main.c
+data.h
+/Users/myaremen/CLionProjects/fdf/data.h
+draw.h
+/Users/myaremen/CLionProjects/fdf/draw.h
+keyboard.h
+/Users/myaremen/CLionProjects/fdf/keyboard.h
+mlx.h
+/Users/myaremen/CLionProjects/fdf/mlx.h
+
+/Users/myaremen/CLionProjects/fdf/src/data.c
+data.h
+/Users/myaremen/CLionProjects/fdf/src/data.h
+mlx.h
+/Users/myaremen/CLionProjects/fdf/src/mlx.h
+parse.h
+/Users/myaremen/CLionProjects/fdf/src/parse.h
 

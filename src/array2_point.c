@@ -28,7 +28,8 @@ size_t	array2_point_size(const struct s_array2_point *sarr)
 	return (array_size(&sarr->arr));
 }
 
-bool	array2_point_push_back(struct s_array2_point *sarr, const struct s_array_point *p)
+bool	array2_point_push_back(struct s_array2_point *sarr,
+		const struct s_array_point *p)
 {
 	return (array_push_back(&sarr->arr, p));
 }

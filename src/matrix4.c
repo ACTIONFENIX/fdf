@@ -13,7 +13,7 @@
 #include "matrix4.h"
 #include "libft.h"
 
-void identity_matrix4(struct s_matrix4 *m)
+void	identity_matrix4(struct s_matrix4 *m)
 {
 	ft_memset(m, 0, sizeof(struct s_matrix4));
 	m->arr[0][0] = 1;
@@ -22,7 +22,8 @@ void identity_matrix4(struct s_matrix4 *m)
 	m->arr[3][3] = 1;
 }
 
-float matrix4_multiply_elem(const struct s_matrix4 *l, const struct s_matrix4 *r, int ci, int cj)
+float	matrix4_multiply_elem(const struct s_matrix4 *l,
+		const struct s_matrix4 *r, int ci, int cj)
 {
 	float res;
 
@@ -33,11 +34,11 @@ float matrix4_multiply_elem(const struct s_matrix4 *l, const struct s_matrix4 *r
 	return (res);
 }
 
-void matrix4_multiply_matrix4(struct s_matrix4 *l, const struct s_matrix4 *r)
+void	matrix4_multiply_matrix4(struct s_matrix4 *l, const struct s_matrix4 *r)
 {
-	struct s_matrix4 res;
-	int i;
-	int j;
+	struct s_matrix4	res;
+	int					i;
+	int					j;
 
 	i = 0;
 	while (i < 4)

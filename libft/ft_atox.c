@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static unsigned int atox_char_to_digit(char c)
+static unsigned int	atox_char_to_digit(char c)
 {
 	if (c >= '0' && c <= '9')
 	{
@@ -51,18 +51,17 @@ static unsigned int	ft_get_uint(const char *str)
 	return (ret_val);
 }
 
-
-unsigned int	ft_atox(const char *str)
+unsigned int		ft_atox(const char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		   || str[i] == '\f' || str[i] == '\r')
+	|| str[i] == '\f' || str[i] == '\r')
 		++i;
 	if (!str[i])
 		return (0);
-	if (str[i] == '0' && (str[i + 1] == 'x' ||str[i + 1] == 'X'))
+	if (str[i] == '0' && (str[i + 1] == 'x' || str[i + 1] == 'X'))
 	{
 		str += 2;
 	}
