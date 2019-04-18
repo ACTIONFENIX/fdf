@@ -285,6 +285,33 @@ src/array2_point.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array2_point.c.s
 .PHONY : src/array2_point.c.s
 
+src/array2_point_at.o: src/array2_point_at.c.o
+
+.PHONY : src/array2_point_at.o
+
+# target to build an object file
+src/array2_point_at.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array2_point_at.c.o
+.PHONY : src/array2_point_at.c.o
+
+src/array2_point_at.i: src/array2_point_at.c.i
+
+.PHONY : src/array2_point_at.i
+
+# target to preprocess a source file
+src/array2_point_at.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array2_point_at.c.i
+.PHONY : src/array2_point_at.c.i
+
+src/array2_point_at.s: src/array2_point_at.c.s
+
+.PHONY : src/array2_point_at.s
+
+# target to generate assembly for a file
+src/array2_point_at.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array2_point_at.c.s
+.PHONY : src/array2_point_at.c.s
+
 src/array_point.o: src/array_point.c.o
 
 .PHONY : src/array_point.o
@@ -311,6 +338,33 @@ src/array_point.s: src/array_point.c.s
 src/array_point.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array_point.c.s
 .PHONY : src/array_point.c.s
+
+src/array_point_at.o: src/array_point_at.c.o
+
+.PHONY : src/array_point_at.o
+
+# target to build an object file
+src/array_point_at.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array_point_at.c.o
+.PHONY : src/array_point_at.c.o
+
+src/array_point_at.i: src/array_point_at.c.i
+
+.PHONY : src/array_point_at.i
+
+# target to preprocess a source file
+src/array_point_at.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array_point_at.c.i
+.PHONY : src/array_point_at.c.i
+
+src/array_point_at.s: src/array_point_at.c.s
+
+.PHONY : src/array_point_at.s
+
+# target to generate assembly for a file
+src/array_point_at.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/array_point_at.c.s
+.PHONY : src/array_point_at.c.s
 
 src/data.o: src/data.c.o
 
@@ -582,9 +636,15 @@ help:
 	@echo "... src/array2_point.o"
 	@echo "... src/array2_point.i"
 	@echo "... src/array2_point.s"
+	@echo "... src/array2_point_at.o"
+	@echo "... src/array2_point_at.i"
+	@echo "... src/array2_point_at.s"
 	@echo "... src/array_point.o"
 	@echo "... src/array_point.i"
 	@echo "... src/array_point.s"
+	@echo "... src/array_point_at.o"
+	@echo "... src/array_point_at.i"
+	@echo "... src/array_point_at.s"
 	@echo "... src/data.o"
 	@echo "... src/data.i"
 	@echo "... src/data.s"

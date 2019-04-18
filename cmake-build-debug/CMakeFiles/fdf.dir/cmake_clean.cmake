@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdf.dir/src/draw_context.c.o"
   "CMakeFiles/fdf.dir/src/parse.c.o"
   "CMakeFiles/fdf.dir/src/utils.c.o"
+  "CMakeFiles/fdf.dir/src/array2_point_at.c.o"
+  "CMakeFiles/fdf.dir/src/array_point_at.c.o"
   "fdf.pdb"
   "fdf"
 )

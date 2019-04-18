@@ -138,7 +138,13 @@
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/array2_point.c">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/array2_point_at.c">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/array_point.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/array_point_at.c">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/Users/myaremen/CLionProjects/fdf/src/data.c">

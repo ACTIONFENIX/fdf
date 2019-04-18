@@ -39,6 +39,11 @@ CMakeFiles/fdf.dir/src/array2_point.c.o
  ../libft/array.h
  ../libft/libft.h
  /Users/myaremen/CLionProjects/fdf/src/array2_point.c
+CMakeFiles/fdf.dir/src/array2_point_at.c.o
+ ../inc/array2_point.h
+ ../libft/array.h
+ ../libft/libft.h
+ /Users/myaremen/CLionProjects/fdf/src/array2_point_at.c
 CMakeFiles/fdf.dir/src/array_point.c.o
  ../inc/array_point.h
  ../inc/color.h
@@ -47,6 +52,14 @@ CMakeFiles/fdf.dir/src/array_point.c.o
  ../libft/array.h
  ../libft/libft.h
  /Users/myaremen/CLionProjects/fdf/src/array_point.c
+CMakeFiles/fdf.dir/src/array_point_at.c.o
+ ../inc/array_point.h
+ ../inc/color.h
+ ../inc/matrix4.h
+ ../inc/point.h
+ ../libft/array.h
+ ../libft/libft.h
+ /Users/myaremen/CLionProjects/fdf/src/array_point_at.c
 CMakeFiles/fdf.dir/src/data.c.o
  ../inc/array2_point.h
  ../inc/data.h

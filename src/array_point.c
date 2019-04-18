@@ -13,42 +13,22 @@
 #include "point.h"
 #include "array_point.h"
 
-void	array_point_init(struct s_array_point *sarr) //inline
+void	array_point_init(struct s_array_point *sarr)
 {
 	array_init(&sarr->arr, sizeof(struct s_point), 0, 0);
 }
 
-void	array_point_destroy(struct s_array_point *sarr) //inline
+void	array_point_destroy(struct s_array_point *sarr)
 {
 	array_destroy(&sarr->arr);
 }
 
-size_t	array_point_size(const struct s_array_point *sarr) //inline
+size_t	array_point_size(const struct s_array_point *sarr)
 {
 	return (array_size(&sarr->arr));
 }
 
-struct s_point array_point_at(struct s_array_point *sarr, size_t i) //inline
-{
-	return (*(struct s_point*)array_at(&sarr->arr, i));
-}
-
-struct s_point *array_point_pat(struct s_array_point *sarr, size_t i)
-{
-	return ((struct s_point*)array_at(&sarr->arr, i));
-}
-
-bool	array_point_push_back(struct s_array_point *sarr, const struct s_point *p) //inline
+bool	array_point_push_back(struct s_array_point *sarr, const struct s_point *p)
 {
 	return (array_push_back(&sarr->arr, p));
-}
-
-struct s_point array_point_front(struct s_array_point *sarr)
-{
-	return array_point_at(sarr, 0);
-}
-
-struct s_point array_point_back(struct s_array_point *sarr)
-{
-	return array_point_at(sarr, array_point_size(sarr) - 1);
 }
